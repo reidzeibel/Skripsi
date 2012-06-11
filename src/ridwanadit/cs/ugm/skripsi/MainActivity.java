@@ -31,10 +31,10 @@ public class MainActivity extends Activity {
 
 	            final Map<String, Long> results = new HashMap<String, Long>();
 
-	            //activate(new Android(),results);
-	            //activate(new GSON(), results);
-	            //activate(new Jackson(), results);
-	            activate (new JacksonYoutube(),results);
+	            activate(new Android(),results);
+	            activate(new GSON(), results);
+	            activate(new Jackson(), results);
+	            //activate (new JacksonYoutube(),results);
 
 	            runOnUiThread(new Runnable() {
 	                public void run() {
@@ -52,7 +52,6 @@ public class MainActivity extends Activity {
 
 	                }
 	            });
-
 	        }
 	    };
 	
@@ -72,35 +71,34 @@ public class MainActivity extends Activity {
         mLayout.addView(textView, mLayoutParams);
         
         new Thread(mTestTask).start();
-
     }
 
 	private void activate(final testJson input, Map<String,Long> result){
-    	//warmuptest(input);
+    	warmuptest(input);
     	long dur = maintest (input,1);
     	result.put("[1 run] " + input.name() + " ", dur);
-    	/*dur = maintest (input,5);
-    	result.put("[5 run] " + input.name() + " ", dur);
+    	dur = maintest (input,5);
+    	result.put("[20 run] " + input.name() + " ", dur);
     	dur = maintest (input,20);
-    	result.put("[20 run] " + input.name() + " ", dur);*/
+    	result.put("[100 run] " + input.name() + " ", dur);
     }
     
     private void warmuptest(final testJson input) {
-    	for (int i = 0; i < 20; i++) {
-        	InputStream is = this.getResources().openRawResource(R.raw.youtube);
+    	for (int i = 0; i < 5; i++) {
+        	InputStream is = this.getResources().openRawResource(R.raw.ridwanadit);
             input.parseTL(is);
         }
     }
     
     private long maintest(final testJson input, int repeats) {
-    	InputStream is = this.getResources().openRawResource(R.raw.youtube);
+    	InputStream is = this.getResources().openRawResource(R.raw.ridwanadit);
     	
 //    	List<Map> result = input.parseTL(is);
 //    	verify(result);
     	
         long duration = 0;
         for (int i = 0; i < repeats; i++) {
-        	is = this.getResources().openRawResource(R.raw.youtube);
+        	is = this.getResources().openRawResource(R.raw.ridwanadit);
             long start = System.currentTimeMillis();
             input.parseTL(is);
             duration += (System.currentTimeMillis() - start);
