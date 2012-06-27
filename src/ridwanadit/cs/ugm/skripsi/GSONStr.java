@@ -2,7 +2,7 @@ package ridwanadit.cs.ugm.skripsi;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,14 +12,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 
 
-public class GSON implements testJson {
+public class GSONStr implements TestStr {
 
-	public List<Map> parseTL(InputStream is) {
+	public List<Map> parseTL(String is) {
 
 		List<Map> result = new ArrayList<Map>();
 
 		try {
-			JsonReader reader = new JsonReader(new InputStreamReader(is));
+			JsonReader reader = new JsonReader(new StringReader(is));
 			reader.beginArray();
 			while (reader.hasNext()) {
 				Map map = new HashMap();
@@ -69,7 +69,7 @@ public class GSON implements testJson {
 
 	@Override
 	public String name() {
-		return "GSON";
+		return "GSONString";
 	}
 
 }

@@ -10,11 +10,11 @@ import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.JsonToken;
 
-public class Jackson implements testJson {
+public class JacksonStr implements TestStr {
 	long start,finish;
 	static JsonFactory f = new JsonFactory();
 
-	public List<Map> parseTL(InputStream is) {
+	public List<Map> parseTL(String is) {
         List<Map> result = new ArrayList<Map>();
 		try {
     		JsonParser jp = f.createJsonParser(is);
@@ -47,6 +47,6 @@ public class Jackson implements testJson {
 	
 	@Override
 	public String name() {
-		return "Jackson";
+		return "JacksonString";
 	}
 }

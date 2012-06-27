@@ -11,14 +11,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class Android implements testJson {
-	long start, finish;
+public class AndroidSplit implements TestStr {
 	
-	public List<Map> parseTL (InputStream is) {
+	public List<Map> parseTL (String str) {
 		List<Map> result = new ArrayList<Map>();
 		
 		try {
-			String str = convertStream(is);
 			JSONArray entry = new JSONArray(str);
 			int length = entry.length();
 			
@@ -51,13 +49,6 @@ public class Android implements testJson {
 		
 	}
 	
-	public static String convertStream(InputStream is) throws IOException {
-		byte [] buffer = new byte[is.available()];
-		while (is.read(buffer) != -1);
-		String jsontext = new String(buffer);
-		return jsontext;
-	}
-
 	@Override
 	public String name() {
 		return "org.json";
