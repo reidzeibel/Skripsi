@@ -168,6 +168,7 @@ public class MainActivity extends Activity {
 		}
 		return output;
     }
+    
     public static String convertStream(InputStream is) throws IOException {
 		byte [] buffer = new byte[is.available()];
 		while (is.read(buffer) != -1);
