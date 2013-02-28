@@ -5,7 +5,7 @@ Analisis performa kecepatan parsing Parser JSON
 
 Parser yang digunakan :
 
-	- Jackson (http://jackson.codehaus.org/)
+	- Jackson (http://wiki.fasterxml.com/JacksonHome)
 	
 	- GSON (http://code.google.com/p/google-gson/)
 	
